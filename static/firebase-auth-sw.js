@@ -1,10 +1,10 @@
 const ignorePaths = ["\u002F__webpack_hmr","\u002F_loading","\u002F_nuxt\u002F"]
 
 importScripts(
-  'https://www.gstatic.com/firebasejs/8.10.0-20217172214/firebase-app.js'
+  'https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js'
 )
 importScripts(
-  'https://www.gstatic.com/firebasejs/8.10.0-20217172214/firebase-auth.js'
+  'https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js'
 )
 firebase.initializeApp({"apiKey":"AIzaSyCQUWxJDjeK6_HKjiyFUMDOm2-v2sOOwoE","authDomain":"paperless-8d409.firebaseapp.com","projectId":"paperless-8d409","storageBucket":"paperless-8d409.appspot.com","messagingSenderId":"533269759434","appId":"1:533269759434:web:763465e4b170fa5dd4fb33","measurementId":"G-HMMB88MH2K"})
 

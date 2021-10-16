@@ -27,7 +27,7 @@
     "dropzone": "5.7.6",
     "element-ui": "2.15.1",
     "es6-promise": "4.2.8",
-    "firebase": "^8.10.0-20217172214",
+    "firebase": "^8.10.0",
     "firebase-admin": "^10.0.0",
     "fuse.js": "6.4.6",
     "google-maps": "4.3.3",

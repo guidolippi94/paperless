@@ -151,7 +151,7 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       // console.log("submitting");
       console.log(
         this.model.name,
@@ -159,6 +159,18 @@ export default {
         this.model.password,
         this.model.agree
       );
+      try {
+        await this.$fire.auth
+          .createUserWithEmailAndPassword(this.model.email, this.model.password)
+          .then((user) => console.log(user));
+        this.$router.push({
+          path: "/",
+        });
+      } catch (e) {
+        this.showDismissibleAlert = true;
+        this.errors = e;
+        console.log(e);
+      }
     },
   },
 };

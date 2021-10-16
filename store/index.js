@@ -1,28 +1,47 @@
 const state = () => ({
-  user: {
-    uid: "",
-    email: "",
-    emailVerified: false,
-    isLoggedIn: false
+  authUser: {
+    uid: null,
+    email: null,
+    emailVerified: null,
+    isAdmin: null
   }
 });
 
 const mutations = {
-  ON_AUTH_STATE_CHANGED_MUTATION: (state, { authUser, claims }) => {
-    if (!authUser) {
-      claims = null;
-      state.user.uid = "";
-      state.user.email = "";
-      state.user.emailVerified = false;
-      state.user.isLoggedIn = false;
-    } else {
+  ON_AUTH_STATE_CHANGED_MUTATION(state, { authUser, claims }) {
+    if (authUser) {
       const { uid, email, emailVerified } = authUser;
-      state.user = { uid, email, emailVerified, isLoggedIn: true };
+
+      state.authUser = {
+        uid,
+        email,
+        emailVerified,
+        isAdmin: claims.custom_claim
+      };
     }
   }
 };
 
 const actions = {
+  async nuxtServerInit({ dispatch, commit }, { res }) {
+    if (res && res.locals && res.locals.user) {
+      const {
+        allClaims: claims,
+        idToken: token,
+        ...authUser
+      } = res.locals.user;
+
+      //   await dispatch("onAuthStateChangedAction", {
+      //     authUser,
+      //     claims,
+      //     token
+      //   });
+
+      // or
+
+      commit("ON_AUTH_STATE_CHANGED_MUTATION", { authUser, claims, token });
+    }
+  },
   onAuthStateChangedAction(state, { authUser, claims }) {
     // if (authUser === null) {
     //   const emptyUser = {
