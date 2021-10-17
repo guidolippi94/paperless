@@ -152,13 +152,6 @@ export default {
   },
   methods: {
     async onSubmit() {
-      // console.log("submitting");
-      console.log(
-        this.model.name,
-        this.model.email,
-        this.model.password,
-        this.model.agree
-      );
       try {
         await this.$fire.auth
           .createUserWithEmailAndPassword(this.model.email, this.model.password)

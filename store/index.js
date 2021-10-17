@@ -1,4 +1,5 @@
 const state = () => ({
+  isLoggedIn: false,
   authUser: {
     uid: null,
     email: null,
@@ -12,11 +13,20 @@ const mutations = {
     if (authUser) {
       const { uid, email, emailVerified } = authUser;
 
+      state.isLoggedIn = true;
       state.authUser = {
         uid,
         email,
         emailVerified,
         isAdmin: claims.custom_claim
+      };
+    } else {
+      state.isLoggedIn = false;
+      state.authUser = {
+        uid: null,
+        email: null,
+        emailVerified: null,
+        isAdmin: null
       };
     }
   }
