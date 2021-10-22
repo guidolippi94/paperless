@@ -107,7 +107,10 @@ module.exports = {
         },
         ssr: true
       },
-      firestore: true
+      firestore: {
+        enablePersistence: true
+      },
+      storage: true
     }
   },
 
