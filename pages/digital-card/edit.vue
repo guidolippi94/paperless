@@ -35,6 +35,7 @@ import UserCard from "~/components/pages/UserProfile/UserCard.vue";
 import ProgressTrackList from "~/components/widgets/ProgressTrackList.vue";
 
 export default {
+  middleware: "authenticated",
   layout: "DashboardLayout",
   components: {
     EditProfileForm,

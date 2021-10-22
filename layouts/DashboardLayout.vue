@@ -118,7 +118,7 @@
         </sidebar-item> -->
       </template>
 
-      <template slot="links-after">
+      <!-- <template slot="links-after">
         <hr class="my-3" />
         <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
 
@@ -168,7 +168,7 @@
             </a>
           </li>
         </ul>
-      </template>
+      </template> -->
     </side-bar>
     <div class="main-content">
       <dashboard-navbar
@@ -207,6 +207,7 @@ import ContentFooter from "~/components/layouts/argon/ContentFooter.vue";
 import DashboardContent from "~/components/layouts/argon/Content.vue";
 
 export default {
+  middleware: "authenticated",
   components: {
     DashboardNavbar,
     ContentFooter,
