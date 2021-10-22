@@ -134,6 +134,7 @@
   </card>
 </template>
 <script>
+import VCard from "vcard-creator";
 import DropzoneFileUpload from "../../argon-core/Inputs/DropzoneFileUpload.vue";
 import LoadingPanel from "../../argon-core/LoadingPanel.vue";
 
@@ -167,9 +168,11 @@ export default {
       },
     };
   },
+
   methods: {
     async updateProfile() {
       this.isLoading = true;
+
       // Upload image if user had changed
       const uid = this.$store.state.authUser.uid;
 

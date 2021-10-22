@@ -31,11 +31,9 @@
                   </h5>
                 </div>
                 <div class="col-auto">
-                  <p class="mt-3 mb-0 text-sm">
-                    <a href="#!" class="text-white font-weight-200"
-                      >Here you can edit your digital profile and decide what
-                      other can see of your digital ID</a
-                    >
+                  <p class="mt-3 mb-0 text-sm text-white">
+                    Here you can edit your digital profile and decide what other
+                    can see of your digital ID
                   </p>
                 </div>
               </div>
@@ -68,11 +66,9 @@
                   </h5>
                 </div>
                 <div class="col-auto">
-                  <p class="mt-3 mb-0 text-sm">
-                    <a href="#!" class="text-white font-weight-200"
-                      >Here you can see how your public business card looks
-                      like. It's all based on your profile infos.</a
-                    >
+                  <p class="mt-3 mb-0 text-sm text-white">
+                    Here you can see how your public business card looks like.
+                    It's all based on your profile infos.
                   </p>
                 </div>
               </div>
@@ -92,6 +88,19 @@
           </div>
         </div>
         <!-- End Card 2 -->
+        <!-- Public Link -->
+        <div class="col-xl-3 col-md-6">
+          <base-alert type="primary">
+            <strong
+              >This is you public link! Share with your new contacts</strong
+            >
+            <a :href="publicProfileUrl">
+              {{ publicProfileUrl }}
+            </a>
+          </base-alert>
+        </div>
+        <!-- Card QR code -->
+        <qr-code-card :propUrl="publicProfileUrl" />
       </div>
     </base-header>
   </div>
@@ -116,6 +125,7 @@ import TaskList from "~/components/widgets/TaskList";
 // Tables
 import LightTable from "~/components/pages/dashboard/LightTable";
 import VectorMapCard from "~/components/widgets/VectorMapCard";
+import QrCodeCard from "../components/pages/dashboard/QrCodeCard.vue";
 
 export default {
   layout: "DashboardLayout",
@@ -131,33 +141,17 @@ export default {
     LightTable,
     ProgressTrackList,
     MembersCard,
+    QrCodeCard,
   },
   data() {
     return {
-      bigLineChart: {
-        chartData: {
-          datasets: [
-            {
-              label: "Performance",
-              data: [0, 20, 10, 30, 15, 40, 20, 60, 60],
-            },
-          ],
-          labels: ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        },
-        extraOptions: chartConfigs.blueChartOptions,
-      },
-      redBarChart: {
-        chartData: {
-          labels: ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-          datasets: [
-            {
-              label: "Sales",
-              data: [25, 20, 30, 22, 17, 29],
-            },
-          ],
-        },
-      },
+      baseUrl: "https://paperless.appsalad.it/digital-card/public/",
     };
+  },
+  computed: {
+    publicProfileUrl() {
+      return this.baseUrl + this.$store.state.authUser.uid;
+    },
   },
 };
 </script>

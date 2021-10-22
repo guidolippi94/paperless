@@ -158,7 +158,8 @@ module.exports = {
           {
             libraryName: "element-ui",
             styleLibraryName: "theme-chalk"
-          }
+          },
+          "~/plugins/qr-code.js"
         ]
       ]
     }

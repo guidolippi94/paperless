@@ -92,6 +92,16 @@ export default {
     UserCard,
     ProgressTrackList,
   },
+  async fetch() {
+    const uid = this.$store.state.authUser.uid;
+    const doc = await this.$fire.firestore.doc(`users/${uid}`).get();
+    if (!doc.exists) {
+      console.log("No such document!");
+    } else {
+      console.log("Document data:", doc.data());
+      this.user = doc.data();
+    }
+  },
   data() {
     return {
       user: {
