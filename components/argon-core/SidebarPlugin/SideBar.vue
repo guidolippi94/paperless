@@ -14,7 +14,11 @@
     <div class="scrollbar-inner" ref="sidebarScrollArea">
       <div class="sidenav-header d-flex align-items-center">
         <a class="navbar-brand" href="#">
-          <img :src="logo" class="navbar-brand-img" alt="Sidebar logo" />
+          <img
+            src="~/static/img/brand/green.png"
+            class="navbar-brand-img"
+            alt="Sidebar logo"
+          />
         </a>
         <div class="ml-auto">
           <!-- Sidenav toggler -->

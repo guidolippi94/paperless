@@ -89,7 +89,9 @@
         </div>
         <!-- End Card 2 -->
         <!-- Public Link -->
-        <div class="col-xl-3 col-md-6">
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-md-6">
           <base-alert type="primary">
             <strong
               >This is you public link! Share with your new contacts</strong

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xl-3 col-md-6">
+  <div class="col-xl-6 col-md-6">
     <div class="card bg-gradient-green border-0">
       <div class="card-body">
         <div class="row">
