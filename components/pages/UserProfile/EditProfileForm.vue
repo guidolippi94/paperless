@@ -113,12 +113,14 @@
           ></dropzone-file-upload>
         </div>
         <div class="col-lg-4" v-if="this.fileSingle.length === 0">
-          <img
-            slot="image"
-            class="card-img-top"
-            :src="user.imageUrl"
-            alt="Card image cap"
-          />
+          <div v-if="this.user.imageUrl">
+            <img
+              slot="image"
+              class="card-img-top"
+              :src="user.imageUrl"
+              alt="Card image cap"
+            />
+          </div>
         </div>
       </div>
 
@@ -201,4 +203,5 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+</style>

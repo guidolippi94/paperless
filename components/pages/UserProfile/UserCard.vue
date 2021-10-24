@@ -9,7 +9,12 @@
     <div class="row justify-content-center">
       <div class="col-lg-3 order-lg-2">
         <div class="card-profile-image">
-          <img :src="userProp.imageUrl" class="rounded-circle round-image" />
+          <img
+            v-if="!userProp.imageUrl"
+            src="img/theme/profile-placeholder.png"
+            class="rounded-circle"
+          />
+          <img v-else :src="userProp.imageUrl" class="rounded-circle" />
         </div>
       </div>
     </div>
@@ -61,7 +66,7 @@
           </div>
           <div class="col" v-if="userProp.website">
             <div><i class="ni ni-world-2"></i></div>
-            <div>{{ userProp.website }}</div>
+            <a :href="userProp.website">{{ userProp.website }}</a>
           </div>
         </div>
         <div class="h5 mt-4">
@@ -102,7 +107,10 @@ export default {
       const url = window.URL.createObjectURL(new Blob([vCard]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "blob.vcf");
+      link.setAttribute(
+        "download",
+        `${this.userProp.firstName}${this.userProp.lastName}_.vcf`
+      );
       document.body.appendChild(link);
       link.click();
     },
